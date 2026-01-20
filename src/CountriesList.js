@@ -23,11 +23,19 @@ export default function CountriesList() {
     }};
     responData();  
     },[])  
+
+    const filteredCountries = country.filter((item) =>
+    item.common.toLowerCase().includes(searchTerm.toLowerCase())
+  );
       
     return (
         <div>
             <div style={{textAlign:"center"}}>
-        <input type="text" placeholder="Search for Countries..." width={100} />
+        <input type="text" placeholder="Search for Countries..." 
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+            style={{width:"300px", height:"30px", fontSize:"16px", borderRadius:"5px", textAlign:"center"}}
+        />
         <br />
         <hr />
         </div>
@@ -39,7 +47,7 @@ export default function CountriesList() {
             gap:"4px"
         }}
         >
-            {country.map((item) => (<CountryCard name={item.common} abbr={item.common} flag={item.png} />  ))}
+            {filteredCountries.map((item) => (<CountryCard name={item.common} abbr={item.common} flag={item.png} />  ))}
             
         </div>
         </div>
