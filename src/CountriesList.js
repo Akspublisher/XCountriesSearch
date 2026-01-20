@@ -47,7 +47,7 @@ export default function CountriesList() {
             gap:"4px"
         }}
         >
-            {filteredCountries.map((item) => (<CountryCard name={item.common} abbr={item.common} flag={item.png} />  ))}
+            {filteredCountries.map((item) => (<CountryCard name={item.common}  flag={item.png} />  ))}
             
         </div>
         </div>
